@@ -60,8 +60,8 @@ export class DepartmentFormComponent   implements OnInit {
   postForm(): void {
     this._dataService.postData('post-' + this.path, this.data.formData).subscribe((data: any)=> { 
       //this.closeForm();
-      //location.reload();
-      this._router.navigate([this.nav_path, data.id]);
+      location.reload();
+      //this._router.navigate([this.nav_path, data.id]);
   }) 
 
   }

@@ -44,7 +44,6 @@ public function execute($s) {
 public function post($POST) {
     $db=$this->connect();
     $output=array();
-    print_r($POST);
     if (!isset($POST['table_name']))
         {
                 $output['result']='Failed';

@@ -8,7 +8,6 @@ import { DataService } from '../../data.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchFilterPipe } from '../../search-filter.pipe';
 import { NavMenuComponent } from '../../layout/nav-menu/nav-menu.component';
-import { UploadMemberComponent } from '../../forms/upload-member/upload-member.component';
 import { NameCapitalizePipe } from '../../pipes/name-capitalize.pipe';
 import { NumericOnlyPipe } from '../../pipes/numeric-only.pipe';
 import { DepartmentFormComponent } from '../../forms/department-form/department-form.component';
