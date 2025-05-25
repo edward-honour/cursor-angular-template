@@ -46,7 +46,7 @@ export class UploadEmployeeComponent   {
       formData.append('file', this.selectedFile, this.selectedFile.name);
       formData.append('uid', this.uid); 
       
-      this.http.post('https://cloud.abbsi.ai/api/dash_upload_member.php', formData).subscribe({
+      this.http.post('https://localhost:8888/upload_employee_roster.php', formData).subscribe({
         next: (data: any) => {
           this.isProcessing = false;
           this._router.navigate(['/member-dashboard', data['hash']]);

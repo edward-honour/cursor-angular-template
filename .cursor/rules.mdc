@@ -1,0 +1,159 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+context:
+  description: >
+    This project is a TypeScript and Angular-based web application that accesses data from the database using API calls
+    written in PHP.
+
+  goals:
+    - Improve readability of code
+    - Use TypeScript best practices
+    - Ensure secure API usage
+    - Add new components and pages quickly using the same format as existing code.
+
+rules:
+  - if: "working with components"
+    description: >
+      There are 8 types of compoents, list pages, lists, forms, panel lists, dashboards, panel displays, and lovs.
+      List pages are top levels pages and called from the routes.ts file.
+      List components are components that are used to display a list of items. They are included in other pages.
+      Form components are components that are used to create or edit a single item.
+      Form components are not top level pages and are called from other components.
+      Panel components are components that are used to display details about an item.
+      Panel components are not top level pages and are called from other components.
+      Dashboard pages are pages that are used to display details about a single item and any related child items.
+      Dashboard pages are top levels pages and called from the routes.ts file.
+
+  - if: "working with a list page"
+    description: >
+      List pages are top level pages that present a list of items. 
+      They usually have a button on each row to navigate to the dashboard for that item.
+      They are called from the routes.ts file.
+      They usually include search and filter functionality.
+      They may also include a button to add a new item. The new item will usually be a form component.
+      They use a resolver to get the list of items from the api.
+      The resolver is defined in the resolver.ts file.
+      The api parses the URL to determine which function to call to get the list of items.
+      If there is are additional parameters in the URL, it is passed to the api as parameters.
+      List Pages are created in the src/app/pages folder.
+      The .ts file for a list page will have a comment in line 1: // List Page
+
+  - if: "creating a new list page"
+    description: >
+      List pages are a top level page that is displayed by the route provider. 
+    then:
+      -- "use src/app/pages/department-list.component.html as a template for the component template"
+      -- "use src/app/pages/department-list.component.ts as a template for the typescript."
+      -- "add an entry to routes.ts for the new component in the format 'path: 'department-list', component: DepartmentListComponent'"
+      -- "create list page components in the src/app/pages folder"
+      -- "leave DepartmentFormComponent and UploadEmployeeComponent as placeholders to be replaced later.
+      -- "fix linting errors"
+
+  - if: "working with a list component"
+    description: >
+      List components are panels that present a list of items.
+      The list of items are usually child records of the parent item.
+      List components are sub components and called from other components.
+      The path property identifies the function called by the api to get the list of items.
+      The path property is passed to the function that gets the list of items from the api.
+      List components are passed the parent item id as an @Input parameter called [id].
+      List components may include a button to close the panel displying the component.
+      List components have a table element that displays the list of items.
+      List components may have a (click) event on each row of the table to emit the current record to the parent component.
+      Data is retrieved from the api on the ngOnInit function.
+      The .ts file for a list component will have a comment in line 1: // List component
+
+  -if: "creating a new list component"
+    then:
+     -- use src/app/panels/employee-list.component.html as a template for the component template.
+     -- src/app/panels/employee-list.component.ts as a template for the typescript.
+     -- create the component using the column names from the employee-list.component.html file and wait for further changes.
+     -- replace the default path property on line 20 of the @Component decorator with the new component name
+     -- create the component in the src/app/panels folder
+     -- fix linting errors
+
+  - if: "working with a form component"
+    description: >
+      Form Components are components that are used to create or edit a single item. They usually have a form with fields
+      that are used to create or edit the item.
+      Form Components have the a comment in line 1 of the .ts file:  // Form Component
+      Form Components are not top level pages and are called from other components.
+      Form Components will also include a button to save the item.
+      Form Components will also include a button to cancel the form that uses EventEmitter to notify the parent component.
+      Form data is stored in the data.formData property of the component.
+      If data.formData['id'] is not present or 0, the form is being used to create a new item.
+      If data.formData['id'] is present and not 0, the form is being used to edit an existing item.
+      If the form is being used to edit an existing item, the form will also include a button to delete the item.
+      If the form is being used to create a new item, the form will also include a button to cancel the form that uses EventEmitter to notify the parent component.
+      If the form is being used to edit an existing item the <h5> title at the top of the form will say "Editing Record".
+      If the form is being used to create a new item the <h5> title at the top of the form will say "Adding New Record".
+      The path property is passed to the function that saves the form to tell the api which table action to perform to save the item.
+
+  - if: "creating a new form component"
+    description: >
+      Form Components are components that are used to create or edit a single item. They usually have a form with fields
+      All Components follow the same basic format.
+      When either adding or editing a form component, the ngOnInit function will be called to get the data for the form.
+      The ngOnInit function will be called with the id of the item to edit or 0 if adding a new item.
+      The ngOnInit function will be called with the path property to tell the api which table action to perform to save the item.
+      The ngOnInit function will be called with the data.formData property to pass the data to the form.
+      The ngOnInit function will be called with the data.formData property to pass the data to the form.
+    then:
+      -- "use src/app/forms/department-form.component.html as a template for the component template"
+      -- "use src/app/forms/department-form.component.ts as a template for the component typescript"
+      -- "do not add an entry to routes.ts for the new component"
+      -- "edit the value of the 'path' property in the @Component decorator to match the new component name"
+      -- "edit the value of the 'selector' property in the @Component decorator to match the new component name"
+      -- "edit the value of the 'templateUrl' property in the @Component decorator to match the new component name"
+      -- "edit the value of the 'styleUrls' property in the @Component decorator to match the new component name"
+      -- "edit the value of the 'providers' property in the @Component decorator to match the new component name"
+      -- "edit the value of the 'exports' property in the @Component decorator to match the new component name"
+      -- "edit the value of the 'imports' property in the @Component decorator to match the new component name"
+      -- "edit the value of the 'standalone' property in the @Component decorator to match the new component name"
+      -- "edit the value of the 'encapsulation' property in the @Component decorator to match the new component name"
+      -- "create the component in the src/app/forms folder"
+      -- "fix linting errors"
+
+  - if: "working with a dashboard page"
+    description: >
+      Dashnoard pages have at least one parameter in the URL that is used to identify the item.
+      Dashboard pages are top level components that are used to display details about an item.
+      Dashboard pages may contain list components that display child records related to the item.
+      Dashboard pages may also include a button to edit an new item using a form component.
+      Dashboard pages may also include panel components that display details about the item or related items.
+      Dashboard Components may inclide toggle buttons to hide and show panels.
+      Dashboard Components rely heavily on @Input, @Output, and EventEmitter.
+      The data property of the component is an object used to store the item and related items.
+      The data.formData property is an object used to store the item and only contains fields existing in the database.
+
+  - if: "creating a dashboard page"
+    description: >
+      Dashboard Components are top levels pages and called from the routes.ts file.
+      Dashboard Components all have the same basic format.
+    then:
+      -- "use src/app/pages/department-dashboard.component.html as a template for the component template"
+      -- "use src/app/pages/department-dashboard.component.ts as a template"
+      -- "add an entry to routes.ts for the new component in the format 'path: 'department-dashboard', component: DepartmentDashboardComponent'"
+      -- "Add references to any form components that are used in the dashboard"
+      --  "Leave the EmployeeListPanelComponent and EmployeeDisplayPanelComponent components to be replaced later."
+      -- "create the component in the src/app/pages folder"
+      -- "fix linting errors"
+
+  - if: "adding a component to dashboard page"
+    then:
+      -- "import the component into the dashboard page"
+      -- "add the component to the dashboard page"
+      -- "create a variable to identify if the component is being displayed or hidden"
+      -- "assume the component is being hidden"
+      -- "add a button to toggle the component"
+      -- "add a function to toggle the component"
+      -- "pass the data.formData['id'] to the component as [id] in the template"
+      -- "pass the function to toggle the component to the component as (close) in the template"
+
+response_style:
+  - concise: true
+  - include_code_examples: true
+  - format: markdown

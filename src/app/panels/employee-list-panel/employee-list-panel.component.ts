@@ -1,3 +1,4 @@
+// List Component
 import { Component, AfterViewInit, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges  } from '@angular/core';
 import { DataService } from '../../data.service';
 import { CommonModule } from '@angular/common';
