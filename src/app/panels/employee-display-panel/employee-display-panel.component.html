@@ -1,0 +1,52 @@
+<div class="card">
+    <div class="card-body">
+        <div class="product-list-card">
+            <h5>{{ data.formData['ENAME'] }}</h5>
+                <div class="settings-block-body">
+                  <div class="list-group">
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>Employee No</div>
+                        <div>
+                              {{ data.formData['EMPNO']}}
+                        </div>
+                      </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                      <div>Job</div>
+                      <div>
+                            {{ data.formData['JOB']}}
+                      </div>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>Department No</div>
+                        <div>
+                              {{ data.formData['DEPTNO']}}
+                        </div>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>Manager</div>
+                        <div>
+                              {{ data.formData['MGR']}}
+                        </div>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>Hire Date</div>
+                        <div>
+                              {{ data.formData['HIREDATE']}}
+                        </div>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>Salary</div>
+                        <div>
+                              {{ data.formData['SAL']}}
+                        </div>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>Commission</div>
+                        <div>
+                              {{ data.formData['COMM']}}
+                        </div>
+                    </div>
+              </div>
+        </div>
+    </div>
+</div>

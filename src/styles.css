@@ -1,0 +1,33 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .app-shell {
+    height: 95vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    z-index: 1000; /* make sure it’s on top */
+  }
+
+  .calendar-container {
+    margin: 20px;
+  }
+  
+  mwl-calendar-month-view {
+    display: block;
+    height: 750px;
+  }
+  

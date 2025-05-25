@@ -1,0 +1,138 @@
+$white: #ffffff;
+$black: #000000;
+
+$body-bg: #f8f8fb;
+$body-bg-dark: #edebf3;
+
+// Font Colors
+$font-color: #13181e;
+$font-color-light: #6c7788;
+
+// Shades
+$bg-shade1: #f3f3f3;
+$bg-shade2: #eeeeee;
+$bg-shade3: #e6e6e6;
+$bg-shade4: #dddddd;
+$bg-shade5: #d6d6d6;
+$bg-shade6: #d1d1d1;
+
+// Border Colors
+$border-bg: #e1e1e1;
+
+// Sidebar Color
+$sidebar-bg: #ffffff;
+$sidebar-text-color: #272727;
+$sidebar-text-hover: #3688fa;
+$dark-sidebar-bg: #2f313a;
+
+// Forms
+$form-bg: #ffffff;
+$form-border: #c3cbd6;
+$form-hover-border: #9ba5b3;
+$input-color: #232629;
+$label-color: #8d9092;
+
+// Table
+$table-bg: #ffffff;
+$table-header-bg: #f3f2f7;
+$table-color: #242424;
+$table-border: #ededed;
+
+// Modal
+$modal-border: #ced9e6;
+$modal-border-dark: #505050;
+
+// Colors
+$red: #f87957;
+$light-red: #ffe8e2;
+$light-red-border: #ffcdc1;
+$dark-red: #e2532b;
+$green: #26ba4f;
+$light-green: #e6ffed;
+$light-green-border: #bbffce;
+$dark-green: #1a913c;
+$yellow: #ffae1f;
+$light-yellow: #fff4e2;
+$light-yellow-border: #ffdea6;
+$dark-yellow: #e89910;
+$blue: #3688fa;
+$light-blue: #e2eeff;
+$light-blue-border: #b5d4ff;
+$dark-blue: #1c6cdc;
+
+$primary: #4267cd;
+$light-primary: #e3eaff;
+$light-primary-border: #c0d0ff;
+$dark-primary: #3054b7;
+
+$secondary: #232f41;
+$light-secondary: #f0f6ff;
+$light-secondary-border: #ddebff;
+$dark-secondary: #151d28;
+
+$light-color: #dbe1e9;
+$light-color-border: #aeb8c4;
+$light-color-dark: #a7afb9;
+
+$dark-color: #9ba2ab;
+$dark-color-border: #757c85;
+$dark-color-dark: #646b74;
+
+// Login
+$login-bg: #dee0eb;
+$login-label-bg: #e2eff7;
+
+// Transition
+@mixin transition($transition-property, $transition-time, $method) {
+	-webkit-transition: $transition-property $transition-time $method;
+	-moz-transition: $transition-property $transition-time $method;
+	-ms-transition: $transition-property $transition-time $method;
+	-o-transition: $transition-property $transition-time $method;
+	transition: $transition-property $transition-time $method;
+}
+
+// Box Sizing
+@mixin box-sizing($string) {
+	-webkit-box-sizing: $string;
+	-moz-box-sizing: $string;
+	box-sizing: $string;
+}
+
+// Box Shadow
+@mixin box-shadow($off-y, $off-x, $blur, $color) {
+	-moz-box-shadow: $off-y $off-x $blur $color; /* FF3.5+ */
+	-webkit-box-shadow: $off-y $off-x $blur $color; /* Saf3.0+, Chrome */
+	box-shadow: $off-y $off-x $blur $color; /* Opera 10.5, IE9 */
+}
+@mixin box-shadow-inset($top, $left, $blur, $color, $inset: "") {
+	-webkit-box-shadow: $top $left $blur $color $inset;
+	-moz-box-shadow: $top $left $blur $color $inset;
+	box-shadow: $top $left $blur $color $inset;
+}
+
+// Border Radius
+@mixin roundedCorners($size) {
+	-webkit-border-radius: $size + px;
+	-moz-border-radius: $size + px;
+	border-radius: $size + px;
+}
+@mixin roundedCornersAll($size1, $size2, $size3, $size4) {
+	-webkit-border-radius: $size1 $size2 $size3 $size4;
+	-moz-border-radius: $size1 $size2 $size3 $size4;
+	border-radius: $size1 $size2 $size3 $size4;
+}
+
+// Transform
+@mixin transform($args) {
+	-webkit-transform: $args;
+	-moz-transform: $args;
+	-o-transform: $args;
+	-ms-transform: $args;
+	transform: $args;
+}
+
+// Opacity
+@mixin opacity($opacity) {
+	opacity: $opacity / 100;
+	filter: alpha(opacity=$opacity);
+}

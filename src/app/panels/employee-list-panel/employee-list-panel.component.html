@@ -1,0 +1,54 @@
+<table class="table table-striped table-responsive">
+    <thead>
+        <tr>
+            <th>
+                Employee No
+            </th>
+            <th>
+                Employee Name
+            </th>
+            <th>
+                Job
+            </th>
+            <th>
+                Manager
+            </th>
+            <th>
+                Hire Date
+            </th>
+            <th>
+                Salary
+            </th>
+            <th>
+                Commission
+            </th>
+        </tr>
+    </thead>
+<tbody>
+@for (m of data.list; track m.ROWID) {
+<tr (click)="clickEvent(m)">
+<td>
+{{ m.EMPNO }}
+</td>
+<td>
+{{ m.ENAME }}
+</td>
+<td>
+{{ m.JOB }}
+</td>
+<td>
+{{ m.mgr_name }}
+</td>
+<td>
+    {{ m.HIREDATE }}
+</td>
+<td>
+    {{ m.SAL }}
+</td>
+<td>
+    {{ m.COMM }}
+</td>
+</tr>
+}
+</tbody>
+</table>

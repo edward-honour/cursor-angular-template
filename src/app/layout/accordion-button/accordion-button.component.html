@@ -1,0 +1,19 @@
+<div class="accordion-item">
+    <h2 class="accordion-header">
+      <button
+        (click)="toggleOpen();"
+        class="accordion-button"
+        [class.collapsed]="open === 'N'"
+        type="button"
+      >
+        <div class="row w-100">
+          <div class="col-7">
+            <ng-content></ng-content>
+          </div>
+          <div class="col-4 text-end">
+              ({{ count }} of {{ total }} answered)
+          </div>
+        </div>
+      </button>
+    </h2>
+  </div>

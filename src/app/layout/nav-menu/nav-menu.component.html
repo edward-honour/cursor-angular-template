@@ -1,0 +1,38 @@
+
+    <div class="row" style="width:100%">
+      <div class="col-md-1">
+        &nbsp;
+        </div>
+        <div class="col-md-9">
+          @if (path=='home') {
+            <button class="btn btn-secondary m-2" [routerLink]="['/department-list']"><div class="icon">
+                <i class="bi bi-shop"></i>
+                  </div>Departments
+            </button>                
+           } 
+           @if (path!='home') {
+            <button class="btn btn-outline-primary m-2" [routerLink]="['/department-list']"><div class="icon">
+                <i class="bi bi-shop"></i>
+                  </div>Departments
+            </button>                
+           } 
+            @if (path=='header-detail') {
+            <button class="btn btn-secondary m-2" [routerLink]="['/header-detail']"><div class="icon">
+                <i class="bi bi-activity"></i>
+                  </div>Header Detail
+            </button>                
+           } 
+           @if (path!='header-detail') {
+            <button class="btn btn-outline-primary m-2" [routerLink]="['/header-detail']"><div class="icon">
+                <i class="bi bi-activity"></i>
+                  </div>Header Detail
+            </button>                
+           } 
+        </div>
+        <div class="col-md-2" style="text-align: right;">
+          <button class="btn btn-outline-primary m-2" [routerLink]="['/']"><div class="icon">
+            <i class="bi bi-person-square"></i>
+          </div>Logout
+        </button>   
+        </div>
+    </div>

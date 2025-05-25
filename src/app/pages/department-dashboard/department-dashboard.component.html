@@ -1,0 +1,142 @@
+<div class="content-wrappe" style="height:1800px;">
+    <div class="row">
+        <div class="col-sm-12 col-12">
+          <div class="profile-header">
+            <h1 style="font-size: 18px; margin-top:20px">Welcome to ABBSI-AI</h1>
+            <div class="profile-header-content">
+              <div class="profile-header-tiles">
+                <div class="row">
+                  <div class="col-sm-12 col-12">
+                    <div class="profile-tile">
+                      @if(data.formData['status']!='Lead') {
+                        <app-nav-menu [path]="'members'" style="width:100%"></app-nav-menu>                        
+                      }
+                      @if(data.formData['status']=='Lead') {
+                        <app-nav-menu [path]="'referrals'" style="width:100%"></app-nav-menu>                        
+                      }
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="profile-avatar-tile">
+                <img src="assets/images/logo.png" class="img-fluid" alt="Bootstrap Gallery" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-sm-12 col-12">
+          <!-- Row start -->
+          <div class="row">
+            <div class="col-sm-12 col-12">
+              <div class="row">
+                <div class="col-12">
+                  <div class="card">
+                    <div class="header shade-primary">
+                      <div class="row">
+                        <div class="col-10">
+                          <h3 style="font-size:18px; color: white;" class="m-3">Department: {{ data.formData['DNAME'] }}</h3>
+                        </div>
+                        <div class="col-2">
+                         </div>
+                      </div>       
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-sm-6 col-6">
+                          <div class="product-list-card">
+                            <div class="row">
+                              <div class="col-5">
+                                <h5>{{ data.formData['DNAME'] }}</h5>
+                                <div class="row">
+                                    <div class="col-6" style="font-size:14px;">
+                                      Dept No:
+                                    </div>
+                                    <div class="col-6"  style="font-size:14px;">
+                                      {{ data.formData['DEPTNO'] }} <br>
+                                    </div>
+                                  </div>
+                                <div class="row">
+                                  <div class="col-6" style="font-size:14px;">
+                                    Location:
+                                  </div>
+                                  <div class="col-6"  style="font-size:14px;">
+                                    {{ data.formData['LOC'] }} <br>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6" style="font-size:14px;">
+                                      Manager:
+                                    </div>
+                                    <div class="col-6"  style="font-size:14px;">
+                                      {{ data.formData['mgr_name'] }} <br>
+                                    </div>
+                                  </div>
+                              </div>
+                              <div class="col-4"  style="font-size:14px;">
+
+                              </div>
+                              <div class="col-3"  style="font-size:14px;">
+                                <button (click)="toggleEditForm()" class="btn btn-primary">Edit Department</button>
+                               </div>
+                            </div>
+                          </div>
+                        </div> 
+                        <div class="col-6">
+                            @if(showing=='Y') {
+                                <div class="row">
+                                  <div class="col-12">
+                                    <app-department-form [id]="data.formData['ROWID']" (close)="toggleEditForm();"></app-department-form>
+                                  </div>
+                                </div>
+                              }
+                        </div>                       
+                      </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-9 col-9">
+                          <div class="product-list-card ms-3 me-3 mt-2">
+                            <h5>Employee List</h5>
+                            <app-employee-list-panel (onclick)="switchEmployee($event)" [id]="data.formData['ROWID']"></app-employee-list-panel>
+                          </div>
+                        </div>
+                        <div class="col-sm-3 col-3">
+                            @if(current_employee!=0) {
+                                <div class="row">
+                                  <div class="col-12">
+                                    <app-employee-display-panel [id]="current_employee"></app-employee-display-panel>
+                                  </div>
+                                </div>
+                              }
+                              @if(current_employee==0) {
+                                <div class="row">
+                                  <div class="col-12">
+                                            <div class="product-list-card">
+                                                <h5>Select Employee to Display</h5>
+                                            </div>
+                                </div>
+                                </div>
+                              }
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Row end -->
+        </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-12">
+            <button (click)="toggleEditForm()" class="btn shade-primary">Update Department Info</button>
+          </div>
+        </div>
+
+        @if(showing=='Y') {
+          <div class="mt-3">
+            <app-department-form (close)="toggleEditForm();"></app-department-form>
+          </div>
+        }
